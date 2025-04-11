@@ -1,13 +1,13 @@
 ﻿import 'reflect-metadata';
-import en from '../../language/en.json';
-import vi from '../../language/vi.json';
+import en from '../../../language/en.json';
+import vi from '../../../language/vi.json';
 import { LanguageCode } from 'one-frontend-framework';
-import { LanguageText } from '../../common/types/languageText';
+import { LanguageText } from '../../../types/languageText';
 import { Lifecycle, scoped } from 'tsyringe';
-import { UrlParamKey } from '../../common/constants/constantValue';
+import { UrlParamKey } from '../../../common/constants/constantValue';
 
 @scoped(Lifecycle.ContainerScoped)
-export class LanguageService {
+export class ServerLanguageService {
     public text: LanguageText = {} as LanguageText;
     public currentLanguage: string = LanguageCode.VI;
 

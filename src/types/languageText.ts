@@ -1,21 +1,33 @@
 export interface LanguageText {
   appName: string;
   label: Label;
-  message: Message;
+  normalMessage: NormalMessage;
   errorMessage: ErrorMessage;
+  auth: Auth;
+}
+
+export interface Auth {
+  username: string;
+  password: string;
+  rememberMe: string;
+  forgotPassword: string;
+  confirmPassword: string;
+  register: string;
+  login: string;
+  error001: string;
+  error002: string;
+  error003: string;
+  error004: string;
 }
 
 export interface ErrorMessage {
   internalServerError: string;
   requiredField: string;
-  wrongEmailFormat: string;
-  pictureError: string;
 }
 
 export interface Label {
   hi: string;
   error: string;
-  enter: string;
   warning: string;
   success: string;
   create: string;
@@ -36,17 +48,8 @@ export interface Label {
   active: string;
   inactive: string;
   select: string;
-  order: string;
-  favorite: string;
-  version: string;
-  back: string;
-  continue: string;
-  finish: string;
-  cancel: string;
-  preview: string;
-  upload: string;
 }
 
-export interface Message {
+export interface NormalMessage {
   saveSuccess: string;
 }

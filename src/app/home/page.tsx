@@ -1,10 +1,12 @@
 import { container } from 'tsyringe';
-import './Home.scss';
-import { LanguageService } from '../../services/logic/languageService';
+import './client/Home.scss';
+import { ServerLanguageService } from '../../services/logic/server/languageService';
 import { AppConfiguration } from '../../common/constants/appConfiguration';
-import { HomeState } from './Home.state';
+import { Fragment } from 'react';
+import { HomeServerState } from './server/Home.state';
+import Home from './client/Home';
 
-export default async function Home({
+export default async function Page({
   params,
   searchParams,
 }: Readonly<{
@@ -13,17 +15,16 @@ export default async function Home({
 }>) {
   const { slug } = await params;
   console.log(slug);
-  const languageService = container.resolve(LanguageService);
+  const languageService = container.resolve(ServerLanguageService);
   languageService.getLanguageInParam(searchParams);
-  
-  const pageState = new HomeState();
+
+  const pageState = new HomeServerState();
   await pageState.init();
 
   return (
-    <div className="home-view">
-      I&apos;m new nextJS
-      <br></br>
+    <Fragment>
+      <Home></Home>
       {AppConfiguration.APP_NAME} - Version: {AppConfiguration.APP_VERSION}
-    </div>
+    </Fragment>
   );
 }

@@ -1,3 +1,6 @@
 {
-  "appName": "nextjs-one-frontend-framework-struct"
+  "appName": "nextjs-one-frontend-framework-struct",
+  "label": {
+    "hi": "Hi"
+  }
 }
